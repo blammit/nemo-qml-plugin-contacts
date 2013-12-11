@@ -534,7 +534,7 @@ QVariant SeasideFilteredModel::get(int row, int role) const
 
 bool SeasideFilteredModel::savePerson(SeasidePerson *person)
 {
-    if (SeasideCache::saveContact(person->contact())) {
+    if (person && SeasideCache::saveContact(person->contact())) {
         // Report that this Person object has changed, since the update
         // resulting from the save will not find any differences
         emit person->dataChanged();
